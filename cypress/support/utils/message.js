@@ -1,0 +1,1 @@
+export const INVALID_API_KEY_MESSAGE = "the parameter apikey is invalid or missing. Please claim your free API key on (https://www.alphavantage.co/support/#api-key). It should take less than 20 seconds.";
