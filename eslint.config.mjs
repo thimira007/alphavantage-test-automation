@@ -32,5 +32,7 @@ export default [...compat.extends("plugin:cypress/recommended"), {
         "cypress/no-async-before": "error",
         "cypress/no-pause": "error",
         "cypress/no-debug": "error",
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"]
     },
 }];
