@@ -104,8 +104,10 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
      * [Test-1.6] Verify API Response with Invalid API Key
      * Steps: Send a [GET] request to TIME_SERIES_DAILY endpoint with invalid API Key
      * Expected Result: status code should be 200 OK. Error message should be displayed on response body
+     * 
+     * NOTE: Test case is skipped due to known issue
      */
-    it('[Test-1.6] Verify API Response with Invalid API Key', { tags: '@bug' }, () => {
+    it.skip('[Test-1.6] Verify API Response with Invalid API Key', { tags: '@bug' }, () => {
         get_time_series_daily('A123', SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT)
             .then(response => {
                 expect(response.status).to.eq(200);

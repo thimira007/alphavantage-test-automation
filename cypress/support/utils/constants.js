@@ -7,6 +7,7 @@ export const CONTENT_TYPE_DOWNLOAD = 'application/x-download';
 
 // Functions
 export const FUNCTION_TIME_SERIES_DAILY = 'TIME_SERIES_DAILY';
+export const FUNCTION_REAL_GDP = 'REAL_GDP';
 
 // Symbols
 export const SYMBOL_IBM = 'IBM';
@@ -17,3 +18,5 @@ export const DATA_TYPE_CSV = 'csv';
 export const OUT_PUT_SIZE_COMPACT = 'compact';
 export const OUT_PUT_SIZE_FULL = 'full';
 export const DYNAMIC_INPUT = 'dynamic-input';
+export const INTERVAL_QUARTERLY = 'quarterly';
+export const INTERVAL_ANNUAL = 'annual';
