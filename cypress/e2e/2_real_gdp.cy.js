@@ -28,7 +28,7 @@ describe('[GET] REAL GDP', { tags: '@smoke' }, () => {
 
                 // data section should include the date and value for each year
                 cy.fixture('gdp_annual_data.json').then((expectedData) => {
-                    expect(response.body.data).to.deep.eq(expectedData)
+                    expect(response.body.data).to.deep.eq(expectedData);
                 });
             });
     });
@@ -58,9 +58,9 @@ describe('[GET] REAL GDP', { tags: '@smoke' }, () => {
                 // verify data
                 cy.fixture('gdp_annual_data.json').then((expectedData) => {
                     const expectedHeaders = 'timestamp,value';
-                    const expectedRows = expectedData.map(item => `${item.date},${item.value}`)
+                    const expectedRows = expectedData.map(item => `${item.date},${item.value}`);
                     const expectedCsv = [expectedHeaders, ...expectedRows];
-                    expect(csvRows).to.deep.eq(expectedCsv)
+                    expect(csvRows).to.deep.eq(expectedCsv);
                 });
             });
     });
