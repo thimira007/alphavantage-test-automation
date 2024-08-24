@@ -1,13 +1,28 @@
 name: Run Cypress Tests
-
+run-name: Run Cypress tests[${{ inputs.test-type }} | ${{ inputs.test-environment }}]
 on:
   workflow_dispatch:
+    inputs:
+      test-type:
+        type: string
+        description: 'Enter Test Type to Run'
+        default: '@smoke'
+      test-environment:
+        type: choice
+        description: 'Select Environment'
+        default: 'stage'
+        options:
+          - 'stage'
+          - 'dev'
 
 jobs:
-  robot-tests:
+  cypress:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Print current branch
+      run: echo "Workflow was triggered on branch ${GITHUB_REF#refs/heads/}"
+
     - name: Checkout repository
       uses: actions/checkout@v4
 
@@ -16,8 +31,11 @@ jobs:
         npm install
 
     - name: Run Cypress tests
+      env:
+        TEST_TYPE: ${{ inputs.test-type }}
+        TEST_ENV: ${{ inputs.test-environment }}
       run: |
-        npx cypress run
+        npx cypress run --env envFile=${TEST_ENV},grepTags=${TEST_TYPE}
 
     - name: Upload Cypress report
       if: always()

@@ -11,7 +11,7 @@ export function get_time_series_daily(apikey, symbol, datatype, outputsize) {
         apikey: apikey,
         datatype: datatype,
         outputsize: outputsize
-    }
+    };
     return cy.request({
         url: QUERY_END_POINT,
         qs: filterQueryVariables(qs)

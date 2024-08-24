@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy-test:smoke": "npx cypress run --env envFile=stage,grepTags=@smoke"
   },
   "devDependencies": {
     "@cypress/grep": "^4.1.0",
