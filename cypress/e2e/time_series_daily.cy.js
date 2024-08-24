@@ -18,6 +18,7 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
             .then(response => {
                 // verify response status code is 200
                 expect(response.status).to.eq(200)
+                cy.wait(1000)
 
                 // Verify that the response is in JSON format
                 expect(response.headers['content-type']).to.eq(CONTENT_TYPE_JSON)
