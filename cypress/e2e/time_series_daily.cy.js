@@ -13,7 +13,7 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
      * symbol: IBM, datatype: json, outputsize: compact
      * Expected Result: status code should be 200 OK
      */
-    it('[Test-1.1] Verify Successful retrieval of Daily Time Series Data - json format, compact', () => {
+    it('[Test-1.1] Verify Successful retrieval of Daily Time Series Data - json format, compact', { tags: '@regression' }, () => {
         get_time_series_daily(API_KEY, SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT)
             .then(response => {
                 // verify response status code is 200
@@ -105,7 +105,7 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
      * Steps: Send a [GET] request to TIME_SERIES_DAILY endpoint with invalid API Key
      * Expected Result: status code should be 200 OK. Error message should be displayed on response body
      */
-    it('[Test-1.6] Verify API Response with Invalid API Key', () => {
+    it('[Test-1.6] Verify API Response with Invalid API Key', { tags: '@bug' }, () => {
         get_time_series_daily('A123', SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT)
             .then(response => {
                 expect(response.status).to.eq(200);
