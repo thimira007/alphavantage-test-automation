@@ -36,14 +36,19 @@ npx cypress run --env envFile=stage,grep="Test-1.6"
   - Branch - required branch to execute the tests from (default is `main`)
   - Test type - Required test tags to execute (default is set as `@smoke`)
   - Environment - Required environment to execute the tests (default is set as `stage`)
+ <img width="1492" alt="image" src="https://github.com/user-attachments/assets/0ec67ddf-e067-4735-9aea-b13a02409bca">
+
 
 ## Test Reporting
  - 'cypress-mochawesome-reporter' is configured for reporting. When the tests executed via cypress run command it will create a detailed test report in `cypress/reports` directory
  - When it comes to the CI executions, the report is uploaded as an artifact in the specific build. To access the report download the `cypress-results` artifact and extract. 
+<img width="1897" alt="image" src="https://github.com/user-attachments/assets/695d7ce1-03f6-4f4f-b41d-e4a5d14d37ff">
 
 
 ## Eslint Workflow
-- eslint workflow is also configured as an static code analysis for the Cypress tests. When there is any commit to the min branch it will be executed automatically and if there are any errors build will fail in CI. 
+- eslint workflow is also configured as an static code analysis for the Cypress tests. When there is any commit to the min branch it will be executed automatically and if there are any errors build will fail in CI.
+  <img width="1885" alt="image" src="https://github.com/user-attachments/assets/72f82b12-0550-43be-81f5-e92283239205">
+
 
 ## Note
 - Please Note that from one alphavantage API_KEY it allows only 25 requests per day. So if we trigger the tests multiple times there can be some issues. 
