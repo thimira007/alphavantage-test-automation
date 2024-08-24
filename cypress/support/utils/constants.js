@@ -3,6 +3,7 @@ export const API_KEY = Cypress.env('apikey');
 
 // request data
 export const CONTENT_TYPE_JSON = 'application/json';
+export const CONTENT_TYPE_DOWNLOAD = 'application/x-download';
 
 // Functions
 export const FUNCTION_TIME_SERIES_DAILY = 'TIME_SERIES_DAILY';

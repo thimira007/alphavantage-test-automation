@@ -14,7 +14,7 @@ module.exports = defineConfig({
     baseUrl: "https://www.alphavantage.co",
     watchForFileChanges: false,
     numTestsKeptInMemory: 1,
-    retries: 0,
+    retries: 1,
 
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -23,7 +23,6 @@ module.exports = defineConfig({
   },
   // any common env variables
   env: {
-    // apikey: 'H3PPC9O6RNL5D5MG'
-    apikey: 'demo'
+    apikey: 'SAMPLE_API_KEY'
   }
 });
