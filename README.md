@@ -1,6 +1,6 @@
 # alphavantage-test-automation
 ## Introduction
-This Test Automation Framework is created using `Cypress` and JavaScript. 'cypress-mochawesome-reporter' was used as the reporting plugin and '@cypress/grep' was introduced to filter and execute tests easily
+This Test Automation Framework is created using `Cypress` and JavaScript. 'cypress-mochawesome-reporter' was used as the reporting plugin and `@cypress/grep` was introduced to filter and execute tests easily
 
 ## How to setup the Project
 1. Clone the project from Github
@@ -15,9 +15,9 @@ npm install
 - To run all the tests using console -> `npx cypress run`
 
 ### Additional Configurations
-- This project is implemented in a way to enable test execution in different test environments (Eg. dev, stage)
-- For each new environment users need to add env.json file in `cypress/environments` directory and specify the required env variables
-- To run the tests on any specific environment use the cypress open or run commands with setting envFile variable
+- This project supports test execution across multiple environments (e.g., dev, stage).
+- To add a new environment, create an `env.json` file in the `cypress/environments` directory and include the necessary environment variables.
+- To execute tests in a specific environment, use the Cypress commands with the `envFile` variable to specify your desired environment.
 ```
 npx cypress open --env envFile=stage
 npx cypress run --env envFile=dev
@@ -26,14 +26,14 @@ npx cypress run --env envFile=dev
 ```
 npx cypress run --env envFile=stage,apikey="demo"
 ```
-- When executing the tests we can use the capabilities of [@cypress/grep](https://www.npmjs.com/package/@cypress/grep) library making it easier to filter specs using various possibilities (There are lot of combinations we could use, please refer the library for more details)
+- When executing tests you can utilize the [@cypress/grep](https://www.npmjs.com/package/@cypress/grep) library to efficiently filter the test cases. This library offers various filtering options to tailor test execution according to your needs. For detailed usage and combinations, please refer to the library documentation.
 ```
 npx cypress run --env envFile=stage,grepTags="@smoke"
 npx cypress run --env envFile=stage,grep="Test-1.6"
 ```
 ## How to run the Tests in CI
 - `cypress_tests.yml` file is implemented as a manual trigger. Users are able to execute this workflow in Github Actions providing the required information
-  - Branch - required branch to execute the tests from (default is `main`)
+  - Branch - Required branch to execute the tests from (default is `main`)
   - Test type - Required test tags to execute (default is set as `@smoke`)
   - Environment - Required environment to execute the tests (default is set as `stage`)
  <img width="1492" alt="image" src="https://github.com/user-attachments/assets/0ec67ddf-e067-4735-9aea-b13a02409bca">
@@ -45,8 +45,8 @@ npx cypress run --env envFile=stage,grep="Test-1.6"
 <img width="1897" alt="image" src="https://github.com/user-attachments/assets/695d7ce1-03f6-4f4f-b41d-e4a5d14d37ff">
 
 
-## Eslint Workflow
-- eslint workflow is also configured as an static code analysis for the Cypress tests. When there is any commit to the min branch it will be executed automatically and if there are any errors build will fail in CI.
+## Static Code Analysis
+- ESLint is configured for static code analysis of Cypress tests. This setup ensures that any commits to the main branch trigger an automatic linting process.
   <img width="1885" alt="image" src="https://github.com/user-attachments/assets/72f82b12-0550-43be-81f5-e92283239205">
 
 
