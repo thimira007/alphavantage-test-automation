@@ -1,1 +1,1 @@
-export const QUERY_END_POINT = '/query'
+export const QUERY_END_POINT = '/query';

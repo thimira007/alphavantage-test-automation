@@ -1,6 +1,6 @@
-const { get_time_series_daily } = require("../api/time_series_daily_util");
-const { API_KEY, SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT, CONTENT_TYPE_JSON, DYNAMIC_INPUT, DATA_TYPE_CSV, CONTENT_TYPE_DOWNLOAD } = require("../support/utils/constants");
-const { INVALID_API_KEY_MESSAGE } = require("../support/utils/message");
+const { get_time_series_daily } = require('../api/time_series_daily_util');
+const { API_KEY, SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT, CONTENT_TYPE_JSON, DYNAMIC_INPUT, DATA_TYPE_CSV, CONTENT_TYPE_DOWNLOAD } = require('../support/utils/constants');
+const { INVALID_API_KEY_MESSAGE } = require('../support/utils/message');
 
 /**
  * All Tests related to the function TIME_SERIES_DAILY will be added in this file
@@ -17,10 +17,10 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
         get_time_series_daily(API_KEY, SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT)
             .then(response => {
                 // verify response status code is 200
-                expect(response.status).to.eq(200)
+                expect(response.status).to.eq(200);
 
                 // Verify that the response is in JSON format
-                expect(response.headers['content-type']).to.eq(CONTENT_TYPE_JSON)
+                expect(response.headers['content-type']).to.eq(CONTENT_TYPE_JSON);
 
                 // Response body should include the expected structure including 'Meta Data' and 'Time Series (Daily)' sections
                 expect(response.body).to.have.property('Meta Data');
@@ -42,7 +42,7 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
                 const timeSeriesKeys = Object.keys(timeSeries);
 
                 // it should return only 100 data points since the output size is compact
-                expect(timeSeriesKeys).to.have.length(100)
+                expect(timeSeriesKeys).to.have.length(100);
 
                 // Verify that the TimeSeries (Daily) object has the keys
                 const firstEntry = timeSeries[timeSeriesKeys[0]];
@@ -65,11 +65,11 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
         get_time_series_daily(API_KEY, SYMBOL_IBM, DATA_TYPE_CSV, OUT_PUT_SIZE_COMPACT)
             .then(response => {
                 // verify response status code is 200
-                expect(response.status).to.eq(200)
+                expect(response.status).to.eq(200);
 
                 // Verify that the response is in csv format
-                expect(response.headers['content-type']).to.eq(CONTENT_TYPE_DOWNLOAD)
-                expect(response.headers['content-disposition']).to.contain('.csv')
+                expect(response.headers['content-type']).to.eq(CONTENT_TYPE_DOWNLOAD);
+                expect(response.headers['content-disposition']).to.contain('.csv');
 
                 // Verify column names
                 const rows = response.body.trim().split('\r\n');
@@ -87,7 +87,7 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
         get_time_series_daily('', SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT)
             .then(response => {
                 expect(response.status).to.eq(200);
-                expect(response.body["Error Message"]).to.eq(INVALID_API_KEY_MESSAGE)
+                expect(response.body['Error Message']).to.eq(INVALID_API_KEY_MESSAGE);
             });
     });
 
@@ -95,7 +95,7 @@ describe('[GET] TIME SERIES DAILY', { tags: '@smoke' }, () => {
         get_time_series_daily('A123', SYMBOL_IBM, DATA_TYPE_JSON, OUT_PUT_SIZE_COMPACT)
             .then(response => {
                 expect(response.status).to.eq(200);
-                expect(response.body["Error Message"]).to.eq(INVALID_API_KEY_MESSAGE)
+                expect(response.body['Error Message']).to.eq(INVALID_API_KEY_MESSAGE);
             });
     });
 
