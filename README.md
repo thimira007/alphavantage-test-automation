@@ -53,3 +53,7 @@ npx cypress run --env envFile=stage,grep="Test-1.6"
 ## Note
 - Please Note that from one alphavantage API_KEY it allows only 25 requests per day. So if we trigger the tests multiple times there can be some issues. 
 - To avoid this we could create a API key dynamically before each test run. This was not implemented at the moment since there is also a limit using the same IP
+
+
+## Overview On Test Cases
+[payrails_tests.pdf](https://github.com/user-attachments/files/16736212/payrails_tests.pdf)
